@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Docker image tag'
+        description: 'Docker image tag (e.g. v1.2.3)'
         required: true
 
 jobs:
@@ -30,11 +30,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata
+      - name: Set image name and tag
         id: meta
         run: |
           IMAGE_NAME="ghcr.io/${GITHUB_REPOSITORY,,}"
-          TAG="${GITHUB_REF#refs/tags/}"
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            TAG="${{ github.event.inputs.tag }}"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+
           echo "image=${IMAGE_NAME}" >> $GITHUB_OUTPUT
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
         shell: bash
