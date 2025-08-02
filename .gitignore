@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.log
+*.sqlite3
+*.db
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+*.orig
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+*.iml
+
+# Env / Build
+.env
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Logs
+logs/
+*.log
+*.out
+
+# pytest
+.cache/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# System
+Thumbs.db
+ehthumbs.db
+
+# Telegram bot tokens (safety precaution)
+secrets.json

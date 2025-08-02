@@ -1,0 +1,3 @@
+python-dotenv==1.0.1
+aiogram==3.21.0
+tronpy @ git+https://github.com/andelf/tronpy.git@master

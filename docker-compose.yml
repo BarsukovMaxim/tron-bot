@@ -1,0 +1,19 @@
+version: "3.9"
+ 
+services:
+  tron-bot:
+    image: ghcr.io/barsukovmaxim/tron-bot:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - tron-bot-net
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+networks:
+  tron-bot-net:
+    driver: bridge
